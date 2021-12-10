@@ -105,10 +105,10 @@ export default function Map() {
               }}
             />
 
-            <Link to="/list">
+            <Link style={{ padding: 10, backgroundColor: '#000', color: '#fff' }} to="/list">
               <Text>Listado</Text>
             </Link>
-            <Link to="/">
+            <Link style={{ padding: 10, backgroundColor: '#000', color: '#fff' }} to="/">
               <Text>Inicio</Text>
             </Link>
           </View>
