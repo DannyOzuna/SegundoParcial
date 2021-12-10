@@ -1,14 +1,7 @@
-import * as React from "react";
-import {
-  Button,
-  Dimensions,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
-import MapView, { Callout, Circle, Marker } from "react-native-maps";
-
+import * as React from 'react';
+import { Button, Dimensions, StyleSheet, Text, TextInput, View } from 'react-native';
+import MapView, { Callout, Circle, Marker } from 'react-native-maps';
+import { Link } from 'react-router-native';
 function useDebounce(input, delay = 1200) {
   const [value, setValue] = React.useState(input);
   React.useEffect(() => {
@@ -58,7 +51,7 @@ export default function Map() {
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
       },
-      3 * 1000
+      3 * 1000,
     );
 
     setPin({
@@ -73,9 +66,9 @@ export default function Map() {
       <View
         style={{
           marginBottom: 40,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
         <View style={{ marginBottom: 10 }}>
@@ -111,6 +104,13 @@ export default function Map() {
                 handleChangeLocation(e);
               }}
             />
+
+            <Link to="/list">
+              <Text>Listado</Text>
+            </Link>
+            <Link to="/">
+              <Text>Inicio</Text>
+            </Link>
           </View>
         </View>
       </View>
@@ -136,7 +136,7 @@ export default function Map() {
           pinColor="black"
           draggable={true}
           onDragStart={(e) => {
-            console.log("Drag start", e.nativeEvent.coordinates);
+            console.log('Drag start', e.nativeEvent.coordinates);
           }}
           onDragEnd={(e) => {
             setPin({
@@ -158,13 +158,13 @@ export default function Map() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   map: {
-    width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height,
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
   },
   input: {
     borderRadius: 10,
